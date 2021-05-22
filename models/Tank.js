@@ -67,57 +67,6 @@ const tankSchema = new mongoose.Schema({
 
 
 
-  tankSchema.pre('updateOne', function(next){
-    now = new Date();
-
-   
-    email = this._conditions.email;
-    no = this._conditions.no
-    day = ((now).getDate());
-    //dailyUsage = this._update.usage
-
-    Report.find({
-        email: email, no : no // search query
-      },{ "_id":0, "email": 0, "__v": 0})
-
-      .then(report => {
-        data = report[0].monthlyUsage;
-        console.log(report[0]);
-        if(day == 1)
-        {   console.log("reset")
-            for(i = 0; i < 31; i++)
-            {
-                data[i] = 0;
-            }
-        }
-        //data[day - 1] = dailyUsage;  
-        
-        Report.updateOne({email: email, no : no}, {monthlyUsage: data} , { runValidators: true }, function(err,
-          result)
-          {
-            if (err) 
-              {
-                console.log(err);
-              } 
-            else 
-              { 
-                console.log("Done!");
-              }
-          });
-
-
-
-
-      })
-      .catch(err => {
-        console.error(err)
-        //res.status(400).json({ err: "error" });
-      }) 
-
-      next();
-  });
-
-
 
 
 
