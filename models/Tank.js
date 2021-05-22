@@ -74,7 +74,7 @@ const tankSchema = new mongoose.Schema({
     email = this._conditions.email;
     no = this._conditions.no
     day = ((now).getDate());
-    dailyUsage = this._update.usage
+    //dailyUsage = this._update.usage
 
     Report.find({
         email: email, no : no // search query
@@ -90,7 +90,7 @@ const tankSchema = new mongoose.Schema({
                 data[i] = 0;
             }
         }
-        data[day - 1] = dailyUsage;  
+        //data[day - 1] = dailyUsage;  
         
         Report.updateOne({email: email, no : no}, {monthlyUsage: data} , { runValidators: true }, function(err,
           result)
