@@ -233,10 +233,12 @@ module.exports.readings_put = (req, res) => {
     {
       if (err) 
         {
+          console.log(err);
           res.send({'response' : 400});
         } 
       else 
         { 
+           console.log(result);
           res.send({'response' : 200});
         }
     });
