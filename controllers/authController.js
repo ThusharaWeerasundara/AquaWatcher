@@ -232,7 +232,7 @@ module.exports.readings_put = (req, res) => {
   console.log(tank);
   const filter = {email: tank.email, no: tank.no};
   console.log((req.body) );
-  Tank.updateOne(filter, req.body , { runValidators: true }, function(err,
+  Tank.updateOne(filter, req.body , function(err,
     result)
     {
       if (err) 
