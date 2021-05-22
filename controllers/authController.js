@@ -223,6 +223,10 @@ module.exports.removeAdmin_delete = (req, res)  => {
 
 }
 
+
+
+
+
 module.exports.readings_put = (req, res) => {
   const tank =  JSON.parse(req.params.id); 
   console.log(tank);
@@ -238,11 +242,16 @@ module.exports.readings_put = (req, res) => {
         } 
       else 
         { 
-           console.log(result);
+           console.log("result");
           res.send({'response' : 200});
         }
     });
 }
+
+
+
+
+
 
 module.exports.user_put = (req, res) => {
   
