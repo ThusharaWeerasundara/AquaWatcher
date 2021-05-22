@@ -82,7 +82,7 @@ const tankSchema = new mongoose.Schema({
 
       .then(report => {
         data = report[0].monthlyUsage;
-        console.log(data);
+        console.log(report[0]);
         if(day == 1)
         {   console.log("reset")
             for(i = 0; i < 31; i++)
