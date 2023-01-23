@@ -62,7 +62,7 @@ router.get('/name/:id', requireAuth, verifiedAccount,checkadmin,  authController
 router.get('/area/:id', requireAuth, verifiedAccount,checkadmin,  authController.area_get);
 
 
-router.post("/notice" , authController.notice_post);
+router.post("/notice" , requireAuth, verifiedAccount, checkadmin, authController.notice_post);
 
 
 
@@ -70,5 +70,5 @@ router.delete('/remove/:id', requireAuth, verifiedAccount, checkadmin, authContr
 router.delete('/removeAdmin/:id', requireAuth, verifiedAccount, checkSuperadmin, authController.removeAdmin_delete);
 
 router.put('/update', requireAuth, verifiedAccount, checkadmin, authController.user_put);
-router.put('/readings/:id',authController.readings_put);
+router.put('/readings/:id', requireAuth, verifiedAccount, checkcust, authController.readings_put);
 module.exports = router;
