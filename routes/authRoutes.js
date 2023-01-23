@@ -3,7 +3,7 @@ const authController = require('../controllers/authController');
 const { requireAuth, checkadmin, checkSuperadmin, verifiedAccount, checkcust } = require('../middleware/authMiddleware');
 const rateLimit = require("express-rate-limit");
 
-
+// small limits for demostration purposes
 const createAccountLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour window
     max: 5, // start blocking after 5 requests
@@ -14,7 +14,7 @@ const createAccountLimiter = rateLimit({
 
 const createAdminAccountLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour window
-    max: 10, // start blocking after 5 requests
+    max: 10, // start blocking after 10 requests
     message:
       "Too many requests from this IP, please try again after an hour"
   });
@@ -22,14 +22,14 @@ const createAdminAccountLimiter = rateLimit({
 
 const createDataLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour window
-    max: 20, // start blocking after 5 requests
+    max: 20, // start blocking after 20 requests
     message:
       "Too many requests from this IP, please try again after an hour"
   });
 
 const createLoginLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour window
-    max: 20, // start blocking after 5 requests
+    max: 20, // start blocking after 20 requests
     message:
       "Too many requests from this IP, please try again after an hour"
   });
