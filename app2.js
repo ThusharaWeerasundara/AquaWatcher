@@ -43,7 +43,7 @@ app.set('view engine', 'ejs');
 PORT = 3001;
 
 // database connection
-const dbURI = 'mongodb+srv://thushara:e16388com@cluster0.whce1.mongodb.net/project';
+const dbURI = 'url db';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
   .then((result) => app.listen(PORT))
   .catch((err) => console.log(err));
