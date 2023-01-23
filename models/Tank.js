@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const { isEmail, isAlpha, isInt } = require('validator');
 const Report = require("./Report");
 
+// email used as key
 const tankSchema = new mongoose.Schema({
     email: {
         type: String,
